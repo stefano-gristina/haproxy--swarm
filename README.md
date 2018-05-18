@@ -1,4 +1,3 @@
-# haproxy-swarm
 This haproxy has the functionality to balance dynamically the http traffic to set of containers associated to a swarm docker service.
 
 The microservices should be stateless, and it should permit to scale up and down the swarm services without any service impact.
@@ -16,6 +15,7 @@ echo "tasks.backend:80" | docker config create my-config -
 Build the image:
 
 docker build -f ./Dockerfile -t haproxy-swarm:1.0 .
+
 docker tag haproxy-swarm:1.0 haproxy-swarm:latest
  
 Start a stack. This is an example:
@@ -24,26 +24,41 @@ docker stack deploy --prune --compose-file ./stack_haproxy.yml  stack-haproxy --
 
 Where stack_haproxy.yml is composed by the haproxy and the backend server to balance. My example:
 
+
+--------------------stack_haproxy.yml ---------------------------------------------
 version: '3.3'
 
 services:
 
   haproxy:
+  
     image: haproxy-swarm:latest
+	
     configs:
       - my-config
+	  
     ports:
+	
       - 8888:8888
+	  
       - 8099:8099  
 
   backend:
+  
     image: nginx
+	
     deploy:
+	
       replicas: 1
+	  
       update_config:
+	  
         delay: 60s
+		
     ports:
+	
       - 80
+--------------------stack_haproxy.yml ---------------------------------------------
 	  
 The 8099 is the external haproxy exposed port (put what you want changing the haproxy.tmpl file); the 8088 port is the management haproxy port. 
 
