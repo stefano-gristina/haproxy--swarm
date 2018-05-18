@@ -25,7 +25,8 @@ docker stack deploy --prune --compose-file ./stack_haproxy.yml  stack-haproxy --
 Where stack_haproxy.yml is composed by the haproxy and the backend server to balance. My example:
 
 
---------------------stack_haproxy.yml ---------------------------------------------
+--------------------stack_haproxy.yml --------------------------------------------
+-
 version: '3.3'
 
 services:
