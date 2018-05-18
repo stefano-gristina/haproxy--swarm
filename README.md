@@ -1,6 +1,6 @@
 Haproxy Swarm
 
-This haproxy has the functionality to balance dynamically the http traffic to set of containers associated to a swarm docker service.
+This haproxy configuration has the functionality to balance dynamically the http traffic to set of containers associated to a swarm docker service.
 
 The microservices should be stateless, and it should permit to scale up and down the swarm services without any service impact.
 
