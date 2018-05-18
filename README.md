@@ -6,7 +6,7 @@ The microservices should be stateless, and it should permit to scale up and down
 
 Unfortunately this is not always true. Often it's necessary to enable the sticky session for assigning a particular user to a backend server.
 
-The swarm load balancing doesn't have this functionality and for that reason I released this haproxy that implements it by the dns swarm service.
+The swarm load balancing doesn't have this functionality and for that reason I released this haproxy configuration that implements it by the dns swarm service.
 
 This idea has been inspired by this blog, https://www.haproxy.com/blog/dynamic-scaling-for-microservices-with-runtime-api/, changing different things in the approach suggested.
 
