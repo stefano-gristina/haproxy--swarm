@@ -12,7 +12,7 @@ The only thing to do is create a configuration file in docker swarm setting the 
 
 echo "tasks.backend:80" | docker config create my-config -
 
-Build the image:
+Build the image (I started from official haproxy Dockerfile):
 
 docker build -f ./Dockerfile -t haproxy-swarm:1.0 .
 
@@ -68,6 +68,7 @@ In the GUI of haproxy you will see two front end:
 
 fe_main: this is the balanced service to backend containers.
 fe_fake: this is a fake service that runs periodically a python script that has the goal to change the haproxy configuration if some scale up or down happened and force the haproxy to reload the configuration.
+
 
 Good luck.
 
