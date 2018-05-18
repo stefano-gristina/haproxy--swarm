@@ -1,4 +1,4 @@
-#Haproxy Swar
+Haproxy Swarm
 
 This haproxy has the functionality to balance dynamically the http traffic to set of containers associated to a swarm docker service.
 
